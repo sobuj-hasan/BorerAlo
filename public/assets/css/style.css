@@ -1,0 +1,252 @@
+@import "default.css";
+
+/*HEADER*/
+header {
+    background: #f1f1f1;
+    transition: .4s;
+}
+.logo img {
+    max-width: 205px;
+}
+.logo i {
+    font-size: 22px;
+    padding: 8px;
+    padding-right: 0;
+    transition: .2s;
+}
+.logo i:hover {
+    color: var(--sc);
+    cursor: pointer;
+}
+.menubar ul {
+    text-align: right;
+}
+.menubar ul li {
+    display: inline-block;
+}
+.menubar ul li {
+    padding: 20px 0px;
+}
+.menubar ul li a {
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: inline-block;
+    padding: 7px 24px;
+    color: #000;
+}
+.menubar .login-menu {
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid blue;
+    line-height: 25px;
+}
+/*HEADER*/
+
+/*MOBILE MENU*/
+
+/*ACCORDION CUSTOM*/
+.mobile-logo img {
+    width: 150px;
+    padding: 10px 0;
+    margin-left: 10px;
+}
+.mobile-logo i {
+    font-size: 20px;
+    float: right;
+    margin: 5px 20px;
+    color: var(--pc);
+    cursor: pointer;
+    padding: 5px;
+}
+.mobile-logo i:hover {
+    color: var(--sc);
+}
+.custom.accordion-button {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 16px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    color: var(--psb);
+    font-weight: 400;
+}
+.custom.accordion-button:hover {
+    color: var(--sc);
+}
+.custom.accordion-button:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid #ccc;
+
+}
+.custom.accordion-button:not(.collapsed) {
+    color: var(--sc);
+    background: var(--rc);
+    -webkit-transform: none;
+    transform: none;
+    font-weight: 400;
+}
+.custom.accordion-button:not(.collapsed)::after {
+    background-image: none;
+    content: "\f068";
+    font-family: 'FontAwesome';
+    -webkit-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+}
+.none.accordion-button:not(.collapsed)::after {
+    content: none;
+    -webkit-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+}
+.custom.accordion-button::after {
+    background-image: none;
+    content: "\f067";
+    font-family: 'FontAwesome';
+}
+.none.accordion-button::after {
+    content: none;
+}
+.custom.accordion-body {
+    padding: 0 0px;
+}
+.custom.accordion-body ul {
+    padding: 0;
+    margin: 0;
+}
+.custom.accordion-body ul li {
+    list-style: none;
+    padding: 8px 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.custom.accordion-body ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: var(--pc);
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 40px;
+}
+.custom.accordion-body ul li a i {
+    font-size: 10px;
+    margin-right: 5px;
+}
+.custom.accordion-body ul li:hover {
+    color: var(--wc);
+    background: var(--rc);
+}
+.custom.accordion-body ul li:hover a {
+    color: var(--sc);
+}
+.custom.accordion-item a {
+    text-decoration: none;
+
+}
+.accordion-button.custom i {
+    padding: 0 10px;
+}
+/*ACCORDION CUSTOM END*/
+.mobile-menu {
+    width: 350px;
+    position: fixed;
+    left: -380px;
+    top: 0;
+    z-index: 2;
+    background: var(--wc);
+    height: 100%;
+    overflow: auto;
+    transition: .4s;
+    padding: 10px 0;
+}
+
+#mobileOverlay {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background: rgba(101, 41, 145, 0.71);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.mobileAdd {
+    left: 0 !important;
+}
+
+.mobile-overlay {
+    position: inherit !important;
+}
+/*MOBILE MENU END*/
+
+/* BANNER CSS START */
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 50%;
+}
+/* BANNER CSS END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER SECTION*/
+.footer-part .logo{
+    max-width: 230px;
+}
+.footer-part {
+    background: #f1f1f1d6;
+}
+
+/* copyright section */
+.copyright-part{
+    background: #f1f1f1d6;
+}
+.copyright-part p{
+    color: #000;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 15px;
+}
+.footer-part .social-link li{
+    list-style-type: none;
+}
+.footer-part .social-link li{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid red;
+}
+.footer-part .social-link li a i{
+    font-size: 18px;
+    color: blueviolet;
+}
+/* FOOTER PART END */
+
+
+
+
+
+
+
+
+
+
+
+
+

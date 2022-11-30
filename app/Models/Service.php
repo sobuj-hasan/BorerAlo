@@ -11,12 +11,19 @@ class Service extends Model
 
     protected $fillable = [
         'user_id',
-        'offer_name',
-        'offer_price',
+        'category_id',
+        'title',
+        'video_link',
+        'long_description',
         'status',
     ];
 
-    protected $with = ['user'];
+    protected $with = ['user', 'category'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function user()
     {

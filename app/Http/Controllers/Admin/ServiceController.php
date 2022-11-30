@@ -44,16 +44,16 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => '',
-            'offer_name' => 'required',
-            'offer_price' => 'required',
+            'category_id' => 'required',
+            'title' => '',
+            'video_link' => 'required',
+            'long_description' => '',
             'status' => 'required',
         ]);
-
         Service::create($request->except('_token') + [
             'user_id' => Auth::user()->id,
         ]);
-        Notify::success('Created a new Offer !', 'Success');
+        Notify::success('Created a new Video !', 'Success');
         return redirect()->route('service.index');
     }
 
@@ -92,9 +92,10 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'user_id' => '',
-            'offer_name' => 'required',
-            'offer_price' => 'required',
+            'category_id' => '',
+            'title' => '',
+            'video_link' => 'required',
+            'long_description' => '',
             'status' => 'required',
         ]);
 
@@ -103,7 +104,7 @@ class ServiceController extends Controller
 
         $services->fill($input)->save();
 
-        Notify::success('Offer Updated Successfully!');
+        Notify::success('Video Updated Successfully!');
         return redirect()->route('service.index');
     }
 
@@ -116,7 +117,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::where('id', $id)->first()->delete();
-        Notify::error('This Offer Deleted', 'Deleted');
+        Notify::success('This Video Deleted', 'Deleted');
         return back();
     }
 }

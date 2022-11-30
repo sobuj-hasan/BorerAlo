@@ -30,9 +30,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="field-1" class="control-label">Category Name</label>
-                                        <input type="text" class="form-control" id="field-1" placeholder="Ex: Table1" name="name" value="{{ old('name') }}">
+                                        <input type="text" class="form-control" id="field-1" placeholder="Ex: Category name" name="name" value="{{ old('name') }}">
                                         @error('name')
-                                           <span class="text-danger">{{ $message }}</span> 
+                                           <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>

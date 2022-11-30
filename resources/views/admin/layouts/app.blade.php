@@ -131,8 +131,8 @@
                             <li>
                                 <a href="javascript: void(0);"> <i class="fa-solid fa-bookmark"></i> <span>Our Video</span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="{{ route('service.index') }}">Add New Video</a></li>
-                                    <li><a href="{{ route('service.create') }}">View All Video</a></li>
+                                    <li><a href="{{ route('service.create') }}">Add New Video</a></li>
+                                    <li><a href="{{ route('service.index') }}">View All Video</a></li>
                                 </ul>
                             </li>
                             <li>

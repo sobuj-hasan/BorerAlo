@@ -13,12 +13,5 @@ class Category extends Model
         'name',
     ];
 
-    // protected $with = ['product'];
-
-    // public function product()
-    // {
-    //     return $this->belongsTo(Product::class);
-    // }
-
     
 }

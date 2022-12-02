@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
-@section('title',' Edit Doctor Profile')
+@section('title',' Edit Video')
 @section('content')
  <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box">
-                    <h4 class="page-title float-left">Edit Doctor Profile</h4>
+                    <h4 class="page-title float-left">Edit Video</h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="">Admin</a></li>
-                        <li class="breadcrumb-item"><a href="">Edit Service</a></li>
+                        <li class="breadcrumb-item"><a href="">Edit Video</a></li>
                     </ol>
                     <div class="clearfix"></div>
                 </div>
@@ -20,40 +20,54 @@
             <div class="col-md-12">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create Doctor</h4>
+                        <h4 class="modal-title">Create Video</h4>
                     </div>
-                    <form method="POST" action="{{ route('service.update', $single_service->id ) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('service.update', $single_video->id ) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6 my-2">
+                                    <label for="" class="form-label">Select Category</label>
+                                    <select name="category_id" id="" class="form-control">
+                                        <option value=""> If you want to category update, Select category </option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ""}}>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Offer Name</label>
-                                        <input type="text" class="form-control" id="field-2" placeholder="offer name" name="offer_name" value="{{ $single_service->offer_name }}" required>
-                                        @error('offer_name')
+                                        <label for="field-2" class="control-label">Title</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="title" name="title" value="{{ $single_video->title }}" required>
+                                        @error('title')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Offer Price</label>
-                                        <input type="text" class="form-control" id="field-2" placeholder="offer price" name="offer_price" value="{{ $single_service->offer_price }}" required>
-                                        @error('offer_price')
+                                        <label for="field-2" class="control-label">Video Link (Upload your video in youtube than submit link here)</label>
+                                        <input type="text" class="form-control" id="field-2" placeholder="video link" name="video_link" value="{{ $single_video->video_link }}" required>
+                                        @error('video_link')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
-
-                                <div class="col-md-6 my-2">
+                                <div class="col-md-12 my-2">
                                     <div class="form-group">
-                                        <label for="field-2" class="control-label">Select Status</label>
-                                        <select class="form-control" name="status">
-                                            <option value="1">Active</option>
-                                            <option value="2">DeActive</option>
-                                        </select>
-                                        @error('status')
+                                        <label for="field-2" class="control-label">Video (Here is direct video upload)</label>
+                                        <input type="file" class="form-control" id="field-2" placeholder="video" name="video" value="{{ old('video'); }}" disabled>
+                                        @error('video')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12 my-2">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Video Description</label><br>
+                                        <textarea class="form-control" name="long_description" id="" cols="30" rows="10">{{ $single_video->long_description }}</textarea>
+                                        @error('long_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>

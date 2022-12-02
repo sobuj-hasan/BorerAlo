@@ -17,7 +17,7 @@ class DashboardController extends Controller
 {
     public function index(){
         $data['users'] = User::count();
-        $data['doctors'] = Service::count();
+        $data['service'] = Service::count();
         $data['services'] = NewArrival::count();
         $data['properties'] = Property::count();
         $data['visitor_quires'] = ContactFormSubmit::count();

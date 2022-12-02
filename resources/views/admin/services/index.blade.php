@@ -48,7 +48,7 @@
                                         </td>
                                         <td>
                                             <h5>
-                                                {{ Str::limit($service->title, 15, $end='...') }}
+                                                {{ Str::limit($service->title, 15, $end='...') ?? 'N/A' }}
                                             </h5>
                                         </td>
                                         <td>
@@ -58,7 +58,7 @@
                                         </td>
                                         <td>
                                             <h5>
-                                                {{ Str::limit($service->long_description, 20, $end='...') }}
+                                                {{ Str::limit($service->long_description, 20, $end='...') ?? 'N/A' }}
                                             </h5>
                                         </td>
                                         <td>

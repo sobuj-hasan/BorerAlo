@@ -65,34 +65,50 @@
    <!-- VIDEO SECTION END -->
 
    <!-- VIDEO SECTION STARt -->
-   <section class="category-wise-content py-4">
+   <section class="category-wise-content pt-4">
       <div class="container">
          <div class="category-item">
-               <h3 class="">সাপ্তাহিক জুমআর খুৎবা </h3>
+               <h3 class="">Recent Videos </h3>
                <div class="row">
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
-                     <div class="video-box">
-                           <iframe width="100%" height="280px" src="https://www.youtube.com/embed/_ixmVeB2nRw" title="YouTube video player"
-                              frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowfullscreen></iframe>
+                  @foreach ($recent_videos as $video)
+                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
+                        <div class="video-box">
+                              <iframe width="100%" height="280px" src="{{ $video->video_link }}" title="YouTube video player"
+                                 frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                 allowfullscreen>
+                              </iframe>
+                        </div>
                      </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
-                     <div class="video-box">
-                           <iframe width="100%" height="280px" src="https://www.youtube.com/embed/P7MFPOtv2ck" title="YouTube video player"
-                              frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowfullscreen></iframe>
-                     </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
-                     <div class="video-box">
-                           <iframe width="100%" height="280px" src="https://www.youtube.com/embed/Vl7SUkAi9rE" title="YouTube video player"
-                              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowfullscreen></iframe>
-                     </div>
-                  </div>
+                  @endforeach
                </div>
          </div>
+      </div>
+   </section>
+   <!-- VIDEO SECTION END -->
+   <!-- VIDEO SECTION STARt -->
+   <section class="category-wise-content py-4">
+      <div class="container">
+         @forelse ($categories as $item)
+               @if (App\Models\Service::where('category_id', $item->id)->count() != 0)
+                  <div class="category-item my-4">
+                     <h3 class="">{{ $item->name }} </h3>
+                     <div class="row">
+                        @foreach ( App\Models\Service::where('category_id', $item->id)->inRandomOrder()->limit(3)->get(); as $video)
+                           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
+                              <div class="video-box">
+                                    <iframe width="100%" height="280px" src="{{ $video->video_link }}" title="YouTube video player"
+                                       frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                       allowfullscreen>
+                                    </iframe>
+                              </div>
+                           </div>
+                        @endforeach
+                     </div>
+                  </div>
+               @endif
+            @empty
+            <p>ক্যাটাগরির ভিডিও শীগ্রই আসবে...</p>
+         @endforelse
       </div>
    </section>
    <!-- VIDEO SECTION END -->
@@ -100,47 +116,23 @@
    <!-- VIDEO CARD SECTION END -->
    <section class="video">
       <div class="container">
-         <h3 class="mt-4">সালাফী মানহাজ পরিচিতি</h3>
+         <h3 class="mt-4">বিশেষ বক্তব্য এবং বিস্তারিত আলোচনা </h3>
          <div class="row">
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
+            @foreach ($specials_lecture as $video)
+               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-4">
                   <div class="card">
-                     <iframe width="100%" height="280px" src="https://www.youtube.com/embed/O2dkgafNZQg" title="YouTube video player"
+                     <iframe width="100%" height="280px" src="{{ $video->video_link }}" title="YouTube video player"
                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                            allowfullscreen>
                      </iframe>
                      <div class="card-body">
-                           <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio a quaerat aut. Officia aliquam perferendis exercitationem accusantium iste cum perspiciatis molestiae dolorum, velit dicta expedita. Porro vitae pariatur id! Odio?</p>
-                           <a href="{{ route('details') }}" class="btn btn-primary">View Details</a>
+                           <h4 class="card-title">{{ Str::limit($video->title, 25, $end='...') }}</h4>
+                           <p class="card-text">{{ Str::limit($video->long_description, 220, $end='...') }} </p>
+                           <a href="{{ route('video-details', $video->id) }}" class="btn btn-primary">View Details</a>
                      </div>
                   </div>
                </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
-                  <div class="card">
-                     <iframe width="100%" height="280px" src="https://www.youtube.com/embed/O2dkgafNZQg" title="YouTube video player"
-                           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                           allowfullscreen>
-                     </iframe>
-                     <div class="card-body">
-                           <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio a quaerat aut. Officia aliquam perferendis exercitationem accusantium iste cum perspiciatis molestiae dolorum, velit dicta expedita. Porro vitae pariatur id! Odio?</p>
-                           <a href="{{ route('details') }}" class="btn btn-primary">View Details</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 my-3">
-                  <div class="card">
-                     <iframe width="100%" height="280px" src="https://www.youtube.com/embed/O2dkgafNZQg" title="YouTube video player"
-                           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                           allowfullscreen>
-                     </iframe>
-                     <div class="card-body">
-                           <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
-                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio a quaerat aut. Officia aliquam perferendis exercitationem accusantium iste cum perspiciatis molestiae dolorum, velit dicta expedita. Porro vitae pariatur id! Odio?</p>
-                           <a href="{{ route('details') }}" class="btn btn-primary">View Details</a>
-                     </div>
-                  </div>
-               </div>
+            @endforeach
          </div>
       </div>
    </section>

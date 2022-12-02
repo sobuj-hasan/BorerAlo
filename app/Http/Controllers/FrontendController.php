@@ -18,12 +18,15 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index(){
-        $data['offers'] = Service::where('status', 1)->latest()->get();
+        $data['categories'] = Category::latest()->limit(10)->get();
+        $data['recent_videos'] = Service::where('status', 1)->latest()->limit(3)->get();
+        $data['specials_lecture'] = Service::where('status', 1)->where('title', '!=', '')->where('long_description', '!=', '')->limit(20)->get();
         return view('index', $data);
     }
     
-    public function details(){
-        return view('details');
+    public function video_details($id){
+        $data['video_details'] = Service::where('id', $id)->first();
+        return view('details', $data);
     }
 
     public function aboutus(){

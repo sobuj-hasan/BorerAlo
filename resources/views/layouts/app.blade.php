@@ -117,7 +117,7 @@
                <div class="row">
                   <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                      <div class="left text-center">
-                           <img class="logo" src="assets/img/logo/logo.png" alt="logo">
+                           <img class="logo" src="{{ asset('assets/img/logo/logo.png') }}" alt="logo">
                      </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-4">

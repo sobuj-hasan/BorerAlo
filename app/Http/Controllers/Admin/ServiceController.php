@@ -78,7 +78,7 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $data['categories'] = Category::all();
-        $data['single_service'] = Service::where('id', $id)->firstOrFail();
+        $data['single_video'] = Service::where('id', $id)->firstOrFail();
         return view('admin.services.edit', $data);
     }
 
@@ -96,7 +96,7 @@ class ServiceController extends Controller
             'title' => '',
             'video_link' => 'required',
             'long_description' => '',
-            'status' => 'required',
+            'status' => '',
         ]);
 
         $services = Service::find($id);

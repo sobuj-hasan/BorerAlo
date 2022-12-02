@@ -11,7 +11,7 @@ Route::get('/dashboard', function () {
 
     // Fontend Controller Routes
     Route::get('/', [FrontendController::class, 'index'])->name('index');
-    Route::get('details', [FrontendController::class, 'details'])->name('details');
+    Route::get('video-details/{id}', [FrontendController::class, 'video_details'])->name('video-details');
     Route::get('aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
     Route::get('contact-us', [FrontendController::class, 'contactus'])->name('contactus');
     Route::get('hospital/service', [FrontendController::class, 'hospital_service'])->name('hospital.service');
@@ -62,8 +62,8 @@ Route::get('/dashboard', function () {
             'users' => 'UserController',
             'service' => 'ServiceController',
             'newarrivals' => 'NewArrivalsController',
-            // 'blogcategories' => 'BlogCategoryController',
-            // 'blogs' => 'BlogController',
+            'blogcategories' => 'BlogCategoryController',
+            'blogs' => 'BlogController',
             // 'admin/subscriber' => 'SubscribeController',
             'admin/visitor/querstion' => 'VisitorQueryController',
             // 'properties' => 'PropertyController',

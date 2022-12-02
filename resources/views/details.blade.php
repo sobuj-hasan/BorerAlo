@@ -7,25 +7,14 @@
           <div class="row">
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                   <div class="video-part mt-4">
-                      <iframe width="100%" height="300" src="https://www.youtube.com/embed/O2dkgafNZQg" title="YouTube video player"
+                      <iframe width="100%" height="300" src="{{ $video_details->video_link }}" title="YouTube video player"
                           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowfullscreen></iframe>
                   </div>
                   <div class="description-part">
-                      <h4 class="py-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis assumenda perspiciatis odio velit dolorum</h4>
+                      <h4 class="py-4">{{ $video_details->title }}</h4>
                       <p class="pb-5">
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae doloremque nesciunt.
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis
-                          debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae
-                          doloremque nesciunt.
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae doloremque nesciunt.
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis
-                          debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae
-                          doloremque nesciunt.
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae doloremque nesciunt.
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet repudiandae possimus, laudantium accusantium perferendis
-                          debitis eveniet voluptatem sunt molestiae, dicta officia ratione enim architecto atque eius deserunt recusandae
-                          doloremque nesciunt.
+                        {{ $video_details->long_description }}
                       </p>
                   </div>
               </div>
